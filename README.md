@@ -19,3 +19,8 @@
 ![image](https://cloud.githubusercontent.com/assets/12845233/12661532/04b41e0a-c612-11e5-8bcb-b999929618b9.png)
 
 ### congratulations you have your repo set up on circleci!
+
+#### setting up environmental variables
+ * click the settings icon on the right of your repo on the circle ci dashboard
+ ![image](https://cloud.githubusercontent.com/assets/12845233/13252272/b6c48998-da2d-11e5-9360-91447e92c48d.png)
+ * click the environment variables tab!
