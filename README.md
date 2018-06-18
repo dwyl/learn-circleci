@@ -1,7 +1,33 @@
-# learn-circleci
-:sunglasses: A quick circleci Tutorial for JavaScript developers
+# Learn Circle CI (Continuous Integration)
 
-# How
+A **_step-by-step_ tutorial** for using **Circle CI**
+for **Continuous Integration & _Deployment_**!
+
+
+>
+
+## Why?
+
+
+
+
+## What?
+
+
+
+## Who?
+
+
+### _Prerequisites_?
+
++ [ ] Basic knowledge of CI concepts.
+If you are new to (_or "rusty"_) on CI,
+please read/follow our "Learn Travis" tutorial _first_:
+[https://github.com/dwyl/**learn-travis**](https://github.com/dwyl/learn-travis)
++ [ ] Basic JavaScript/Node.js knowledge.
+
+## How
+
 - sign up to [circleci](https://circleci.com/)
 - follow link to add github code.
 - authenticate the organisation/account that has projects that you use CI with.
