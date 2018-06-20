@@ -144,7 +144,7 @@ e.g: https://circleci.com/gh/nelsonic/circleci-hello-world-nodejs/edit#badges
 
 ## Part 2 - Continuous _Deployment_
 
-Continuous Deployment (CD) is the perfect compliment
+Continuous Deployment (CD) is the perfect complement
 to Continuous Integration (CI)
 and people _usually_ use the _same_ "pipeline" (system) to automate it.
 It just means that your application is **_automatically_ deployed**
@@ -198,23 +198,71 @@ you will have a _well defined system_ for running/monitoring node.js.
 
 ### 7. Deploy!
 
+For this section we are doing an "advanced" deployment
+to a DigitalOcean Instance using Dokku
+(_which is an Open Source Heroku "clone"_).
+It's only "advanced" in that there are a few more "steps"
+than deploying to Heroku, but don't worry,
+we have documented _everything_ "***step-by-step***"
+so it should only take you about 10 minutes to setup.
+
+> _**Note**: as always, if you **get** "**stuck**",
+just **open an issue** and we will try our best to help!_
+https://github.com/dwyl/learn-circleci/issues
+
+#### 7.1 Add RSA Key
+
+In order to _deploy_ the app via SSH,
+we need to add the SSH (RSA) key to CircleCI.
+_Thankfully_ this is a _**lot** easier_ thank on Travis-CI!
+
+In your app's Settings page,
+1. ***Scroll*** down to the "**Permissions**" section.
+2. ***Click*** on **SSH Permissions**
+3. ***Click*** on the **`Add SSH Key`** button.
+![circleci-add-ssh-key](https://user-images.githubusercontent.com/194400/41679037-d0118b2e-74c4-11e8-8f0d-555e4a0691b2.png)
+
+A "modal" window will appear which allows you to _paste_ your Private Key.
+![circleci-add-ssh-private-key](https://user-images.githubusercontent.com/194400/41679036-cffd9f9c-74c4-11e8-8132-33b1298b0b6f.png)
+> _**Note**: we do **NOT recommend** using your **personal `private`** key
+for deployments! rather you should create a key that is **specific** to
+the server you are deploying to
+and is **only** "**known**" (used) by your CI/CD system.
+see:_ [https://github.com/dwyl/**learn-devops**](https://github.com/dwyl/learn-devops)
+
+<!-- note: update this link to the specific section in the Dokku deployment guide
+once https://github.com/dwyl/learn-devops/pull/29 is merged! -->
+
+![circleci-ssh-key-added-success](https://user-images.githubusercontent.com/194400/41679038-d02536ba-74c4-11e8-9d25-6c9ae6ea32b8.png)
+
+We have _successfully_ added our SSH _Deployment_ RSA Key!
+
+#### 7.2
+
+## Relevant / Background Reading
+
++ How to run Bash Scripts on CircleCI:
+https://circleci.com/docs/2.0/using-shell-scripts
++ Permission denied running bash script ...
+https://stackoverflow.com/questions/33942926/circleci-permission-denied-running-bash-script
 
 
 
-### congratulations you have your repo set up on circleci!
+<!--
 
-#### setting up environmental variables
+### X. Environmental Variables
  * click the settings icon on the right of your repo on the circle ci dashboard
  ![image](https://cloud.githubusercontent.com/assets/12845233/13252272/b6c48998-da2d-11e5-9360-91447e92c48d.png)
  * click the environment variables tab!
 
+-->
 
+#### _Official_ "Getting Started" Video?
 
- Probably the _best_ way to get _started_ is by watching the _official_
+The _official_
  **_get started_ on CircleCI 2.0** video: https://youtu.be/KhjwnTD4oec
  [![get-started-on-circle-ci](https://user-images.githubusercontent.com/194400/41592975-53e7e958-73b6-11e8-95af-18ad57fa56c0.png)](https://youtu.be/KhjwnTD4oec)
-
- > **Note**: the video uses a Python example:
- https://github.com/bellkev/circleci-demo-python-django
- it's not really "hello world" (_beginner friendly_) ...
- So just focus on the UI/navigation, then come back here for a simple example!
+uses a Python example:
+https://github.com/bellkev/circleci-demo-python-django
+it's not really "hello world" (_beginner friendly_) ...
+So just focus on the UI/navigation, then come back here for a simple example!
