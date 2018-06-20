@@ -237,7 +237,66 @@ once https://github.com/dwyl/learn-devops/pull/29 is merged! -->
 
 We have _successfully_ added our SSH _Deployment_ RSA Key!
 
-#### 7.2
+#### 7.2 Add Deployment Scripts to your Project
+
+Create a `/bin` directory in your project.
+```sh
+mkdir bin
+```
+Copy the deployement scripts from:
+https://github.com/nelsonic/circleci-hello-world-nodejs/tree/master/bin
+
+You can either do this _manually_ by downloading each file to your project,
+or ... using a script!
+
+#### 7.3 Add Required Environment Variables
+
+Add any Environment Variables you need to your `.circleci/config.yml` file.
+The IP Address of the server is required as is the `DOKKU_APP` name.
+
+e.g:
+```yaml
+environment:
+   SERVER_IP_ADDRESS: 138.68.163.126
+   DOKKU_APP: circlecidemo
+   TRAVIS: "false"
+```
+working example: https://github.com/nelsonic/circleci-hello-world-nodejs/blob/ecfab4a49141da87f36519e50ecda593f01aaf48/.circleci/config.yml#L8
+
+> **Note**: if you need your environment variables to **not**
+be in Version Control, add them via the CircleCI Web Interface.
+more details: https://circleci.com/docs/2.0/env-vars
+
+> If you are `new` to Environment Variables,
+checkout: https://github.com/dwyl/learn-environment-variables
+
+#### 7.4 Add Command to Run Deployment Script
+
+Add the following lines to your `.circleci/config.yml` file:
+
+```yaml
+# Use BASH instead of DASH! see: https://ubuntuforums.org/showthread.php?t=1932504
+- run: ls -al /bin/sh && sudo rm /bin/sh && sudo ln -s /bin/bash /bin/sh && ls -al /bin/sh
+# test shell script:
+- run: echo ${SERVER_IP_ADDRESS}
+- run: echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- run: sh bin/deploy.sh
+```
+
+Working example: https://github.com/nelsonic/circleci-hello-world-nodejs/blob/ecfab4a49141da87f36519e50ecda593f01aaf48/.circleci/config.yml#L43-L48
+
+
+> Push your code to GitHub and let CircleCI do the rest!
+
+In the build log you should see something like:
+![circleci-deployed-successfully](https://user-images.githubusercontent.com/194400/41688249-3dbc795e-74e3-11e8-9988-aaf780e27974.png)
+
+e.g: https://circleci.com/gh/nelsonic/circleci-hello-world-nodejs/18
+
+### `done`
+
+
+
 
 ## Relevant / Background Reading
 
@@ -246,16 +305,6 @@ https://circleci.com/docs/2.0/using-shell-scripts
 + Permission denied running bash script ...
 https://stackoverflow.com/questions/33942926/circleci-permission-denied-running-bash-script
 
-
-
-<!--
-
-### X. Environmental Variables
- * click the settings icon on the right of your repo on the circle ci dashboard
- ![image](https://cloud.githubusercontent.com/assets/12845233/13252272/b6c48998-da2d-11e5-9360-91447e92c48d.png)
- * click the environment variables tab!
-
--->
 
 #### _Official_ "Getting Started" Video?
 
