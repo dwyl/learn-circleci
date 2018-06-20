@@ -285,13 +285,38 @@ Add the following lines to your `.circleci/config.yml` file:
 
 Working example: https://github.com/nelsonic/circleci-hello-world-nodejs/blob/ecfab4a49141da87f36519e50ecda593f01aaf48/.circleci/config.yml#L43-L48
 
-
 > Push your code to GitHub and let CircleCI do the rest!
+> It usually takes a minute to deploy (_depending on your dependencies_)
+![image](https://user-images.githubusercontent.com/194400/41688584-a9f1b552-74e4-11e8-9a2c-5b679fa86b92.png)
+
 
 In the build log you should see something like:
 ![circleci-deployed-successfully](https://user-images.githubusercontent.com/194400/41688249-3dbc795e-74e3-11e8-9988-aaf780e27974.png)
 
 e.g: https://circleci.com/gh/nelsonic/circleci-hello-world-nodejs/18
+
+
+### 8. Check it Worked!
+
+In our case our `DOKKU_APP` was defined as `circlecidemo`
+(_see: section 7.3 above_)
+So the deployed app is available on:
+https://circlecidemo.ademo.app
+If we visit this URL in our browser we see:
+
+![demo-app](https://user-images.githubusercontent.com/194400/41688716-1f79530c-74e5-11e8-8949-5287148841ca.png)
+
+Notice the "Git Hash" value: [dc933373388911d9405fb452c9753f0250766bb3](https://github.com/nelsonic/circleci-hello-world-nodejs/tree/dc933373388911d9405fb452c9753f0250766bb3)
+
+This corresponds to the latest commit on the `master` branch:
+https://github.com/nelsonic/circleci-hello-world-nodejs/commits/master
+(_GitHub only shows the first 7 characters of the has in the UI
+  in this case: `dc93337`_)
+
+![image](https://user-images.githubusercontent.com/194400/41688820-88ab8ac0-74e5-11e8-9996-d5bb5119a970.png)
+
+So it worked! (_the latest `master` has been deployed by CircleCI!_)
+
 
 ### `done`
 
