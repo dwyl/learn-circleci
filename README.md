@@ -62,15 +62,6 @@ https://github.com/dwyl/learn-circleci/issues
 
 ## How
 
-Probably the _best_ way to get _started_ is by watching the _official_
-**_get started_ on CircleCI 2.0** video: https://youtu.be/KhjwnTD4oec
-[![get-started-on-circle-ci](https://user-images.githubusercontent.com/194400/41592975-53e7e958-73b6-11e8-95af-18ad57fa56c0.png)](https://youtu.be/KhjwnTD4oec)
-
-> **Note**: the video uses a Python example:
-https://github.com/bellkev/circleci-demo-python-django
-it's not really "hello world" (_beginner friendly_) ...
-So just focus on the UI/navigation, then come back here for a simple example!
-
 ### 1. Register
 
 Register using your GitHub account: https://circleci.com
@@ -137,6 +128,61 @@ and ended in "***SUCCESS***".
 (_it's a "hello world" example, it should be fast and pass_!)
 
 
+### 5. Status Badge!
+
+At this point we can add a "Badge" to our project `README.md`
+[![CircleCI](https://circleci.com/gh/nelsonic/circleci-hello-world-nodejs.svg?style=svg)](https://circleci.com/gh/nelsonic/circleci-hello-world-nodejs)
+
+e.g: https://circleci.com/gh/nelsonic/circleci-hello-world-nodejs/edit#badges
+![circle-ci-status-badge](https://user-images.githubusercontent.com/194400/41626981-46e652a2-7416-11e8-8e9e-0a03c8fde0a2.png)
+
+> For why this is a good idea, see: https://github.com/dwyl/repo-badges
+
+
+## Part 2 - Continuous _Deployment_
+
+Continuous Deployment (CD) is the perfect compliment
+to Continuous Integration (CI)
+and people _usually_ use the _same_ "pipeline" (system) to automate it.
+
+> If you are `new` to Continuous Deployment (CD) in _general_
+we wrote an introductory post in:
+[https://github.com/dwyl/**learn-devops**](https://github.com/dwyl/learn-devops)
+
+
+> <sup>1</sup>As always, we recommend using Heroku for "MVP" App(s) because
+it's *much* easier/faster to get started and traction.
+see: https://github.com/dwyl/learn-heroku
+and: https://circleci.com/docs/2.0/deployment-integrations/#heroku
+once you ***need*** "more power" than Heroku (_or need to reduce costs_),
+take a look at:
+[https://github.com/dwyl/**learn-devops**](https://github.com/dwyl/learn-devops)
+
+### 6. Pre-Deployment Checks
+
+1. Ensure that you have a `"start"` script in your `package.json`.
+e.g:
+```json
+{
+  "scripts": {
+    "start": "node server.js",
+    "test": "node hello.test.js"
+  }
+}
+```
+
+2. Ensure that your app runs on your `localhost` ***before*** attempting
+to deploy it to your chosen "cloud" provider.
+
+> **Note**: there are several ways of starting node.js servers,
+(e.g: PM2, Forever or SystemD) we are using `"node server.js"` for simplicity.
+But if you are running your own infrastructure,
+you will have a _well defined system_ for running/monitoring node.js.
+
+
+### 7. Deploy!
+
+
 
 ### congratulations you have your repo set up on circleci!
 
@@ -144,3 +190,14 @@ and ended in "***SUCCESS***".
  * click the settings icon on the right of your repo on the circle ci dashboard
  ![image](https://cloud.githubusercontent.com/assets/12845233/13252272/b6c48998-da2d-11e5-9360-91447e92c48d.png)
  * click the environment variables tab!
+
+
+
+ Probably the _best_ way to get _started_ is by watching the _official_
+ **_get started_ on CircleCI 2.0** video: https://youtu.be/KhjwnTD4oec
+ [![get-started-on-circle-ci](https://user-images.githubusercontent.com/194400/41592975-53e7e958-73b6-11e8-95af-18ad57fa56c0.png)](https://youtu.be/KhjwnTD4oec)
+
+ > **Note**: the video uses a Python example:
+ https://github.com/bellkev/circleci-demo-python-django
+ it's not really "hello world" (_beginner friendly_) ...
+ So just focus on the UI/navigation, then come back here for a simple example!
