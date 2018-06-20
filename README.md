@@ -62,6 +62,9 @@ https://github.com/dwyl/learn-circleci/issues
 
 ## How
 
+If you do not _already_ have an App that you want to test and deploy,
+see:
+
 ### 1. Register
 
 Register using your GitHub account: https://circleci.com
@@ -144,6 +147,8 @@ e.g: https://circleci.com/gh/nelsonic/circleci-hello-world-nodejs/edit#badges
 Continuous Deployment (CD) is the perfect compliment
 to Continuous Integration (CI)
 and people _usually_ use the _same_ "pipeline" (system) to automate it.
+It just means that your application is **_automatically_ deployed**
+by the CI system (_in this case CircleCI_) when the PR is merged.
 
 > If you are `new` to Continuous Deployment (CD) in _general_
 we wrote an introductory post in:
@@ -174,6 +179,17 @@ e.g:
 2. Ensure that your app runs on your `localhost` ***before*** attempting
 to deploy it to your chosen "cloud" provider.
 
+Run the `start` command:
+```sh
+npm start
+```
+![circleci-npm-start-localhost-terminal](https://user-images.githubusercontent.com/194400/41675959-120936ca-74bc-11e8-8098-7133210dc342.png)
+
+Visit: http://localhost:5000
+![circleci-localhost-app-working](https://user-images.githubusercontent.com/194400/41664456-aca9b82c-749d-11e8-83d8-cee513031682.png)
+
+Ok, so it's _working_ on `localhost`; we have a good "baseline". _Onwards_!
+
 > **Note**: there are several ways of starting node.js servers,
 (e.g: PM2, Forever or SystemD) we are using `"node server.js"` for simplicity.
 But if you are running your own infrastructure,
@@ -181,6 +197,7 @@ you will have a _well defined system_ for running/monitoring node.js.
 
 
 ### 7. Deploy!
+
 
 
 
